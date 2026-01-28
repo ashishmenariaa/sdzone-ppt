@@ -99,7 +99,7 @@ const SDZonePresentation = () => {
                 <p className="text-2xl font-bold text-white mb-2">Ashish and Saem</p>
                 <p className="text-lg text-purple-300 mb-4"> 250820520033/250820520009</p>
                 <div className="w-full h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent my-4"></div>
-                <p className="text-xl text-purple-200">PG-DAC <span className="text-purple-400">•</span> Feb 2025</p>
+                <p className="text-xl text-purple-200">PG-DAC <span className="text-purple-400">•</span> Aug 2025</p>
                 <p className="text-lg text-purple-300 mt-1">CDAC Noida</p>
               </div>
             </div>
