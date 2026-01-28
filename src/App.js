@@ -96,8 +96,8 @@ const SDZonePresentation = () => {
               
               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-12 py-8 animate-fadeInUp" 
                    style={{ animationDelay: '0.5s' }}>
-                <p className="text-2xl font-bold text-white mb-2">Your Name</p>
-                <p className="text-lg text-purple-300 mb-4">Your Roll No / PRN</p>
+                <p className="text-2xl font-bold text-white mb-2">Ashish and Saem</p>
+                <p className="text-lg text-purple-300 mb-4"> 250820520033/250820520009</p>
                 <div className="w-full h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent my-4"></div>
                 <p className="text-xl text-purple-200">PG-DAC <span className="text-purple-400">•</span> Feb 2025</p>
                 <p className="text-lg text-purple-300 mt-1">CDAC Noida</p>
