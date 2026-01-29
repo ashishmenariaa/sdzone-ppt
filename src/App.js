@@ -5,9 +5,8 @@ const SDZonePresentation = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [flowStep, setFlowStep] = useState(0);
 
-  // Flowchart animation
   useEffect(() => {
-    if (currentSlide === 8) { // Flowchart slide
+    if (currentSlide === 8) {
       setFlowStep(0);
       const interval = setInterval(() => {
         setFlowStep(prev => {
@@ -17,7 +16,7 @@ const SDZonePresentation = () => {
           }
           return prev + 1;
         });
-      }, 600); // Each step takes 600ms
+      }, 600);
       return () => clearInterval(interval);
     }
   }, [currentSlide]);
@@ -48,59 +47,44 @@ const SDZonePresentation = () => {
       case 'title':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900">
-              <div className="absolute inset-0 opacity-10" style={{
-                backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.5) 2px, transparent 2px),
-                                 linear-gradient(90deg, rgba(139, 92, 246, 0.5) 2px, transparent 2px)`,
-                backgroundSize: '60px 60px',
-                animation: 'gridMove 25s linear infinite'
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+              <div className="absolute inset-0 opacity-5" style={{
+                backgroundImage: `linear-gradient(rgba(100, 116, 139, 0.5) 1px, transparent 1px),
+                                 linear-gradient(90deg, rgba(100, 116, 139, 0.5) 1px, transparent 1px)`,
+                backgroundSize: '50px 50px'
               }}></div>
-              
-              {[...Array(25)].map((_, i) => (
-                <div key={i} className="absolute rounded-full bg-purple-400/20"
-                  style={{
-                    width: `${Math.random() * 6 + 3}px`,
-                    height: `${Math.random() * 6 + 3}px`,
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animation: `float ${Math.random() * 12 + 8}s ease-in-out infinite`,
-                    animationDelay: `${Math.random() * 5}s`
-                  }}
-                />
-              ))}
             </div>
 
             <div className="slide-content z-10 flex flex-col items-center justify-center text-center">
-              <div className="mb-6 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 blur-3xl opacity-60 animate-pulse"></div>
-                <TrendingUp className="relative w-24 h-24 text-purple-300" strokeWidth={1.5} />
+              <div className="mb-8">
+                <TrendingUp className="w-20 h-20 text-blue-500 mx-auto" strokeWidth={1.5} />
               </div>
               
-              <h1 className="text-8xl font-black bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 bg-clip-text text-transparent mb-4 animate-fadeInUp" 
-                  style={{ fontFamily: "'Outfit', sans-serif", animationDelay: '0.1s' }}>
+              <h1 className="text-8xl font-bold text-white mb-4 animate-fadeInUp" 
+                  style={{ fontFamily: "'Inter', sans-serif", animationDelay: '0.1s', letterSpacing: '-0.02em' }}>
                 SDZONE
               </h1>
               
-              <div className="w-48 h-1.5 bg-gradient-to-r from-purple-400 to-pink-500 mb-6 rounded-full animate-fadeInUp" 
+              <div className="w-32 h-0.5 bg-blue-500 mb-6 animate-fadeInUp" 
                    style={{ animationDelay: '0.2s' }}></div>
               
-              <h2 className="text-4xl font-bold text-purple-200 mb-3 animate-fadeInUp" 
+              <h2 className="text-3xl font-semibold text-slate-300 mb-2 animate-fadeInUp" 
                   style={{ animationDelay: '0.3s' }}>
                 Supply and Demand Zone
               </h2>
               
-              <p className="text-2xl text-purple-300/90 mb-12 animate-fadeInUp" 
+              <p className="text-xl text-slate-400 mb-16 animate-fadeInUp" 
                  style={{ animationDelay: '0.4s' }}>
                 Automated Trading Indicator Platform
               </p>
               
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-12 py-8 animate-fadeInUp" 
+              <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-lg px-12 py-8 animate-fadeInUp" 
                    style={{ animationDelay: '0.5s' }}>
-                <p className="text-2xl font-bold text-white mb-2">Ashish and Saem</p>
-                <p className="text-lg text-purple-300 mb-4"> 250820520033/250820520009</p>
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent my-4"></div>
-                <p className="text-xl text-purple-200">PG-DAC <span className="text-purple-400">•</span> Aug 2025</p>
-                <p className="text-lg text-purple-300 mt-1">CDAC Noida</p>
+                <p className="text-2xl font-semibold text-white mb-2">Your Name</p>
+                <p className="text-lg text-slate-400 mb-4">Your Roll No / PRN</p>
+                <div className="w-full h-px bg-slate-700 my-4"></div>
+                <p className="text-lg text-slate-300">PG-DAC <span className="text-slate-600">•</span> Feb 2025</p>
+                <p className="text-base text-slate-400 mt-1">CDAC Noida</p>
               </div>
             </div>
           </div>
@@ -109,40 +93,40 @@ const SDZonePresentation = () => {
       case 'introduction':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-600 to-teal-700"></div>
+            <div className="absolute inset-0 bg-white"></div>
             <div className="slide-content">
-              <div className="flex items-center mb-8">
-                <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl mr-5">
-                  <TrendingUp className="w-14 h-14 text-white" strokeWidth={2} />
+              <div className="flex items-center mb-10">
+                <div className="bg-blue-500 p-3 rounded-lg mr-4">
+                  <TrendingUp className="w-10 h-10 text-white" strokeWidth={2} />
                 </div>
-                <h2 className="slide-title">Introduction</h2>
+                <h2 className="slide-title text-slate-900">Introduction</h2>
               </div>
 
               <div className="grid grid-cols-2 gap-8 h-[calc(100%-120px)]">
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 flex flex-col justify-center">
+                <div className="bg-slate-50 border border-slate-200 rounded-lg p-8 flex flex-col justify-center">
                   <div className="text-center mb-6">
-                    <h3 className="text-3xl font-bold text-white mb-4">Trading Challenges</h3>
+                    <h3 className="text-2xl font-bold text-slate-800 mb-4">Trading Challenges</h3>
                   </div>
                   
-                  <div className="space-y-6">
+                  <div className="space-y-5">
                     {[
                       { icon: BarChart3, text: 'Complex Market Analysis' },
                       { icon: AlertTriangle, text: 'Manual Decision Making' },
                       { icon: Target, text: 'Entry/Exit Point Detection' }
                     ].map((item, idx) => (
-                      <div key={idx} className="flex items-center bg-white/10 rounded-xl p-4 animate-slideInLeft" 
+                      <div key={idx} className="flex items-center bg-white border border-slate-200 rounded-lg p-4 animate-slideInLeft" 
                            style={{ animationDelay: `${idx * 0.1}s` }}>
-                        <div className="bg-white/20 rounded-lg p-3 mr-4">
-                          <item.icon className="w-8 h-8 text-white" strokeWidth={2} />
+                        <div className="bg-blue-50 rounded-lg p-2 mr-4">
+                          <item.icon className="w-7 h-7 text-blue-600" strokeWidth={2} />
                         </div>
-                        <span className="text-xl font-semibold text-white">{item.text}</span>
+                        <span className="text-lg font-medium text-slate-700">{item.text}</span>
                       </div>
                     ))}
                   </div>
 
                   <div className="mt-8 text-center">
-                    <ArrowRight className="w-12 h-12 text-yellow-300 mx-auto animate-pulse" strokeWidth={3} />
-                    <p className="text-2xl font-bold text-yellow-300 mt-2">Need for Automation</p>
+                    <ArrowRight className="w-10 h-10 text-blue-500 mx-auto mb-2" strokeWidth={2.5} />
+                    <p className="text-lg font-semibold text-slate-800">Need for Automation</p>
                   </div>
                 </div>
 
@@ -153,13 +137,13 @@ const SDZonePresentation = () => {
                     'Traders need reliable signals to identify entry and exit points',
                     'Automation can significantly improve trading efficiency and accuracy'
                   ].map((point, idx) => (
-                    <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-slideInRight"
+                    <div key={idx} className="bg-white border border-slate-200 rounded-lg p-5 animate-slideInRight"
                          style={{ animationDelay: `${idx * 0.15}s` }}>
                       <div className="flex items-start">
-                        <div className="flex-shrink-0 w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center mr-4 mt-1">
-                          <span className="text-emerald-900 font-black text-lg">{idx + 1}</span>
+                        <div className="flex-shrink-0 w-7 h-7 bg-blue-500 rounded flex items-center justify-center mr-4 mt-0.5">
+                          <span className="text-white font-bold text-sm">{idx + 1}</span>
                         </div>
-                        <p className="text-xl text-white font-medium leading-relaxed">{point}</p>
+                        <p className="text-lg text-slate-700 leading-relaxed">{point}</p>
                       </div>
                     </div>
                   ))}
@@ -172,66 +156,62 @@ const SDZonePresentation = () => {
       case 'problem':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-rose-600 to-pink-700"></div>
+            <div className="absolute inset-0 bg-slate-50"></div>
             <div className="slide-content">
-              <div className="flex items-center mb-8">
-                <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl mr-5">
-                  <AlertTriangle className="w-14 h-14 text-white" strokeWidth={2} />
+              <div className="flex items-center mb-10">
+                <div className="bg-red-500 p-3 rounded-lg mr-4">
+                  <AlertTriangle className="w-10 h-10 text-white" strokeWidth={2} />
                 </div>
-                <h2 className="slide-title">Problem Statement</h2>
+                <h2 className="slide-title text-slate-900">Problem Statement</h2>
               </div>
 
-              {/* Improved Layout */}
-              <div className="grid grid-cols-2 gap-8 h-[calc(100%-120px)]">
-                {/* Left side - Main problems */}
+              <div className="grid grid-cols-2 gap-6 h-[calc(100%-120px)]">
                 <div className="space-y-4">
                   {[
                     { icon: TrendingDown, title: 'Manual Zone Identification', desc: 'Time-consuming and labor-intensive process' },
                     { icon: AlertTriangle, title: 'Human Error in Analysis', desc: 'High probability of mistakes in technical analysis' },
                     { icon: Database, title: 'Lack of Automation', desc: 'Existing indicators lack precision and full automation' }
                   ].map((problem, idx) => (
-                    <div key={idx} className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl p-6 animate-slideInLeft hover:bg-white/20 transition-all"
+                    <div key={idx} className="bg-white border-l-4 border-red-500 shadow-sm rounded-lg p-6 animate-slideInLeft hover:shadow-md transition-shadow"
                          style={{ animationDelay: `${idx * 0.15}s` }}>
                       <div className="flex items-start">
-                        <div className="bg-yellow-400 rounded-xl p-3 mr-4">
-                          <problem.icon className="w-8 h-8 text-rose-900" strokeWidth={2.5} />
+                        <div className="bg-red-50 rounded-lg p-2 mr-4">
+                          <problem.icon className="w-7 h-7 text-red-600" strokeWidth={2} />
                         </div>
                         <div>
-                          <h3 className="text-2xl font-black text-white mb-2">{problem.title}</h3>
-                          <p className="text-lg text-white/90">{problem.desc}</p>
+                          <h3 className="text-xl font-bold text-slate-900 mb-2">{problem.title}</h3>
+                          <p className="text-base text-slate-600">{problem.desc}</p>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* Right side - Additional problems */}
                 <div className="space-y-4">
                   {[
                     { icon: Lock, title: 'Subscription Management', desc: 'Challenges in managing user access and subscriptions' },
                     { icon: Server, title: 'Scalability Issues', desc: 'Lack of secure, scalable trading platforms' }
                   ].map((problem, idx) => (
-                    <div key={idx} className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl p-6 animate-slideInRight hover:bg-white/20 transition-all"
+                    <div key={idx} className="bg-white border-l-4 border-orange-500 shadow-sm rounded-lg p-6 animate-slideInRight hover:shadow-md transition-shadow"
                          style={{ animationDelay: `${idx * 0.15 + 0.3}s` }}>
                       <div className="flex items-start">
-                        <div className="bg-orange-400 rounded-xl p-3 mr-4">
-                          <problem.icon className="w-8 h-8 text-rose-900" strokeWidth={2.5} />
+                        <div className="bg-orange-50 rounded-lg p-2 mr-4">
+                          <problem.icon className="w-7 h-7 text-orange-600" strokeWidth={2} />
                         </div>
                         <div>
-                          <h3 className="text-2xl font-black text-white mb-2">{problem.title}</h3>
-                          <p className="text-lg text-white/90">{problem.desc}</p>
+                          <h3 className="text-xl font-bold text-slate-900 mb-2">{problem.title}</h3>
+                          <p className="text-base text-slate-600">{problem.desc}</p>
                         </div>
                       </div>
                     </div>
                   ))}
 
-                  {/* Impact Box */}
-                  <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-8 animate-slideUp mt-4"
+                  <div className="bg-gradient-to-r from-red-500 to-orange-500 rounded-lg p-8 animate-slideUp shadow-lg"
                        style={{ animationDelay: '0.6s' }}>
                     <div className="text-center">
-                      <AlertTriangle className="w-16 h-16 text-rose-900 mx-auto mb-4" strokeWidth={2} />
-                      <h3 className="text-2xl font-black text-rose-900 mb-2">Critical Impact</h3>
-                      <p className="text-lg text-rose-800 font-bold">Leading to decreased trading efficiency and increased risk</p>
+                      <AlertTriangle className="w-12 h-12 text-white mx-auto mb-3" strokeWidth={2} />
+                      <h3 className="text-xl font-bold text-white mb-2">Critical Impact</h3>
+                      <p className="text-base text-white/90 font-medium">Decreased efficiency & increased risk</p>
                     </div>
                   </div>
                 </div>
@@ -243,16 +223,16 @@ const SDZonePresentation = () => {
       case 'objectives':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-700"></div>
+            <div className="absolute inset-0 bg-white"></div>
             <div className="slide-content">
-              <div className="flex items-center mb-8">
-                <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl mr-5">
-                  <Target className="w-14 h-14 text-white" strokeWidth={2} />
+              <div className="flex items-center mb-10">
+                <div className="bg-blue-500 p-3 rounded-lg mr-4">
+                  <Target className="w-10 h-10 text-white" strokeWidth={2} />
                 </div>
-                <h2 className="slide-title">Project Objectives</h2>
+                <h2 className="slide-title text-slate-900">Project Objectives</h2>
               </div>
 
-              <div className="grid grid-cols-5 gap-6 h-[calc(100%-120px)] items-center">
+              <div className="grid grid-cols-5 gap-5 h-[calc(100%-120px)] items-center">
                 {[
                   { icon: Zap, title: 'Automate', desc: 'Supply & demand zone detection' },
                   { icon: BarChart3, title: 'Provide', desc: 'Accurate buy/sell signals' },
@@ -261,12 +241,12 @@ const SDZonePresentation = () => {
                   { icon: CheckCircle, title: 'Ensure', desc: 'Scalability & security' }
                 ].map((obj, idx) => (
                   <div key={idx} className="animate-slideUp" style={{ animationDelay: `${idx * 0.1}s` }}>
-                    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 h-full flex flex-col items-center text-center hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                      <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-5 mb-4 shadow-xl">
-                        <obj.icon className="w-12 h-12 text-white" strokeWidth={2} />
+                    <div className="bg-white border border-slate-200 rounded-lg p-6 h-full flex flex-col items-center text-center hover:border-blue-500 hover:shadow-md transition-all duration-300">
+                      <div className="bg-blue-500 rounded-lg p-4 mb-4">
+                        <obj.icon className="w-10 h-10 text-white" strokeWidth={2} />
                       </div>
-                      <h3 className="text-2xl font-black text-white mb-3">{obj.title}</h3>
-                      <p className="text-lg text-white/90 font-medium leading-snug">{obj.desc}</p>
+                      <h3 className="text-xl font-bold text-slate-900 mb-2">{obj.title}</h3>
+                      <p className="text-sm text-slate-600 leading-snug">{obj.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -278,32 +258,31 @@ const SDZonePresentation = () => {
       case 'scope':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-600 to-purple-700"></div>
+            <div className="absolute inset-0 bg-slate-50"></div>
             <div className="slide-content">
-              <div className="flex items-center mb-8">
-                <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl mr-5">
-                  <CheckCircle className="w-14 h-14 text-white" strokeWidth={2} />
+              <div className="flex items-center mb-10">
+                <div className="bg-indigo-500 p-3 rounded-lg mr-4">
+                  <CheckCircle className="w-10 h-10 text-white" strokeWidth={2} />
                 </div>
-                <h2 className="slide-title">Scope of the Project</h2>
+                <h2 className="slide-title text-slate-900">Scope of the Project</h2>
               </div>
 
-              {/* Improved Grid Layout */}
               <div className="grid grid-cols-3 gap-6 h-[calc(100%-120px)]">
                 {[
-                  { icon: Code2, title: 'PineScript Indicator', desc: 'Advanced trading indicator development', color: 'from-cyan-500 to-blue-600' },
-                  { icon: Globe, title: 'Web Platform', desc: 'Subscription and management system', color: 'from-green-500 to-emerald-600' },
-                  { icon: Lock, title: 'Payment Integration', desc: 'Secure payment gateway setup', color: 'from-orange-500 to-red-600' },
-                  { icon: Zap, title: 'Automated Deployment', desc: 'Seamless indicator distribution', color: 'from-purple-500 to-pink-600' },
-                  { icon: Database, title: 'Communication Module', desc: 'User notifications and updates', color: 'from-indigo-500 to-violet-600' },
-                  { icon: Shield, title: 'Security Layer', desc: 'Code protection and encryption', color: 'from-yellow-500 to-orange-600' }
+                  { icon: Code2, title: 'PineScript Indicator', desc: 'Advanced trading indicator development', color: 'blue' },
+                  { icon: Globe, title: 'Web Platform', desc: 'Subscription and management system', color: 'green' },
+                  { icon: Lock, title: 'Payment Integration', desc: 'Secure payment gateway setup', color: 'orange' },
+                  { icon: Zap, title: 'Automated Deployment', desc: 'Seamless indicator distribution', color: 'purple' },
+                  { icon: Database, title: 'Communication Module', desc: 'User notifications and updates', color: 'indigo' },
+                  { icon: Shield, title: 'Security Layer', desc: 'Code protection and encryption', color: 'red' }
                 ].map((item, idx) => (
                   <div key={idx} className="animate-popIn" style={{ animationDelay: `${idx * 0.1}s` }}>
-                    <div className={`bg-gradient-to-br ${item.color} rounded-3xl p-8 h-full border-4 border-white/20 shadow-2xl hover:scale-105 transition-transform`}>
-                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 inline-block mb-4">
-                        <item.icon className="w-12 h-12 text-white" strokeWidth={2} />
+                    <div className={`bg-white border-l-4 border-${item.color}-500 rounded-lg p-6 h-full shadow-sm hover:shadow-md transition-all`}>
+                      <div className={`bg-${item.color}-50 rounded-lg p-3 inline-block mb-4`}>
+                        <item.icon className={`w-9 h-9 text-${item.color}-600`} strokeWidth={2} />
                       </div>
-                      <h3 className="text-2xl font-black text-white mb-3">{item.title}</h3>
-                      <p className="text-lg text-white/90 font-medium leading-relaxed">{item.desc}</p>
+                      <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                      <p className="text-base text-slate-600 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -315,29 +294,29 @@ const SDZonePresentation = () => {
       case 'benefits':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-teal-600 to-cyan-700"></div>
+            <div className="absolute inset-0 bg-white"></div>
             <div className="slide-content">
-              <div className="flex items-center mb-8">
-                <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl mr-5">
-                  <Award className="w-14 h-14 text-white" strokeWidth={2} />
+              <div className="flex items-center mb-10">
+                <div className="bg-green-500 p-3 rounded-lg mr-4">
+                  <Award className="w-10 h-10 text-white" strokeWidth={2} />
                 </div>
-                <h2 className="slide-title">Key Benefits</h2>
+                <h2 className="slide-title text-slate-900">Key Benefits</h2>
               </div>
 
               <div className="grid grid-cols-2 gap-8 h-[calc(100%-120px)]">
                 {[
-                  { icon: Zap, title: 'Increased Efficiency', desc: 'Automated zone detection saves hours of manual analysis', color: 'from-yellow-400 to-orange-500' },
-                  { icon: Target, title: 'Higher Accuracy', desc: 'Algorithm-based signals reduce human error significantly', color: 'from-green-400 to-emerald-500' },
-                  { icon: Lock, title: 'Secure & Reliable', desc: 'Enterprise-grade security for user data and transactions', color: 'from-blue-400 to-indigo-500' },
-                  { icon: Users, title: 'Scalable Solution', desc: 'Supports unlimited users with cloud infrastructure', color: 'from-purple-400 to-pink-500' }
+                  { icon: Zap, title: 'Increased Efficiency', desc: 'Automated zone detection saves hours of manual analysis', color: 'yellow' },
+                  { icon: Target, title: 'Higher Accuracy', desc: 'Algorithm-based signals reduce human error significantly', color: 'green' },
+                  { icon: Lock, title: 'Secure & Reliable', desc: 'Enterprise-grade security for user data and transactions', color: 'blue' },
+                  { icon: Users, title: 'Scalable Solution', desc: 'Supports unlimited users with cloud infrastructure', color: 'purple' }
                 ].map((benefit, idx) => (
                   <div key={idx} className="animate-slideIn" style={{ animationDelay: `${idx * 0.15}s` }}>
-                    <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-3xl p-8 h-full hover:bg-white/20 transition-all">
-                      <div className={`bg-gradient-to-br ${benefit.color} rounded-2xl p-5 inline-block mb-6 shadow-xl`}>
-                        <benefit.icon className="w-12 h-12 text-white" strokeWidth={2.5} />
+                    <div className="bg-slate-50 border border-slate-200 rounded-lg p-8 h-full hover:border-blue-500 transition-all">
+                      <div className={`bg-${benefit.color}-500 rounded-lg p-4 inline-block mb-5`}>
+                        <benefit.icon className="w-10 h-10 text-white" strokeWidth={2} />
                       </div>
-                      <h3 className="text-3xl font-black text-white mb-4">{benefit.title}</h3>
-                      <p className="text-xl text-white/90 font-medium leading-relaxed">{benefit.desc}</p>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-3">{benefit.title}</h3>
+                      <p className="text-lg text-slate-600 leading-relaxed">{benefit.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -349,27 +328,27 @@ const SDZonePresentation = () => {
       case 'system-overview-diagram':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-600 to-red-700"></div>
+            <div className="absolute inset-0 bg-slate-50"></div>
             <div className="slide-content">
-              <h2 className="slide-title mb-8">System Overview</h2>
+              <h2 className="slide-title text-slate-900 mb-10">System Overview</h2>
 
-              <div className="flex items-center justify-between h-[calc(100%-100px)] px-12">
+              <div className="flex items-center justify-between h-[calc(100%-100px)] px-8">
                 {[
-                  { icon: Globe, title: 'User\nRegistration', color: 'from-cyan-400 to-blue-500', step: 1 },
-                  { icon: BarChart3, title: 'Select\nSubscription', color: 'from-green-400 to-emerald-500', step: 2 },
-                  { icon: Lock, title: 'Payment\nProcessing', color: 'from-yellow-400 to-orange-500', step: 3 },
-                  { icon: Zap, title: 'Grant\nAccess', color: 'from-purple-400 to-pink-500', step: 4 },
-                  { icon: Database, title: 'Backend\nManagement', color: 'from-indigo-400 to-violet-500', step: 5 }
+                  { icon: Globe, title: 'User Registration', step: 1 },
+                  { icon: BarChart3, title: 'Select Subscription', step: 2 },
+                  { icon: Lock, title: 'Payment Processing', step: 3 },
+                  { icon: Zap, title: 'Grant Access', step: 4 },
+                  { icon: Database, title: 'Backend Management', step: 5 }
                 ].map((item, idx) => (
                   <React.Fragment key={idx}>
                     <div className="flex flex-col items-center animate-slideUp" style={{ animationDelay: `${idx * 0.2}s` }}>
-                      <div className="bg-white/20 backdrop-blur-sm rounded-full w-12 h-12 flex items-center justify-center mb-4 border-2 border-white/50">
-                        <span className="text-2xl font-black text-white">{item.step}</span>
+                      <div className="bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center mb-4">
+                        <span className="text-lg font-bold text-white">{item.step}</span>
                       </div>
                       
-                      <div className={`bg-gradient-to-br ${item.color} rounded-3xl p-8 w-56 shadow-2xl border-2 border-white/30 hover:scale-110 transition-transform`}>
-                        <item.icon className="w-16 h-16 text-white mx-auto mb-4" strokeWidth={2} />
-                        <p className="text-center text-white font-black text-xl leading-tight whitespace-pre-line">
+                      <div className="bg-white border-2 border-slate-200 rounded-lg p-6 w-52 shadow-sm hover:shadow-md hover:border-blue-500 transition-all">
+                        <item.icon className="w-12 h-12 text-blue-600 mx-auto mb-3" strokeWidth={2} />
+                        <p className="text-center text-slate-900 font-semibold text-lg leading-tight">
                           {item.title}
                         </p>
                       </div>
@@ -377,7 +356,7 @@ const SDZonePresentation = () => {
                     
                     {idx < 4 && (
                       <div className="animate-fadeIn" style={{ animationDelay: `${idx * 0.2 + 0.3}s` }}>
-                        <ArrowRight className="w-12 h-12 text-white" strokeWidth={4} />
+                        <ArrowRight className="w-10 h-10 text-slate-400" strokeWidth={2.5} />
                       </div>
                     )}
                   </React.Fragment>
@@ -390,78 +369,42 @@ const SDZonePresentation = () => {
       case 'architecture-diagram':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-gray-900"></div>
+            <div className="absolute inset-0 bg-white"></div>
             <div className="slide-content">
-              <h2 className="slide-title mb-8">System Architecture</h2>
+              <h2 className="slide-title text-slate-900 mb-10">System Architecture</h2>
 
               <div className="grid grid-cols-3 gap-8 h-[calc(100%-100px)] items-stretch">
-                <div className="flex flex-col animate-slideInLeft">
-                  <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-3xl p-6 flex-1 border-4 border-white/20 shadow-2xl">
-                    <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 inline-block mb-6">
-                      <Globe className="w-12 h-12 text-white" strokeWidth={2} />
-                    </div>
-                    <h3 className="text-3xl font-black text-white mb-6">Frontend</h3>
-                    <div className="space-y-4">
-                      {['HTML', 'CSS', 'JavaScript'].map((tech, i) => (
-                        <div key={i} className="bg-white/20 rounded-xl p-4 backdrop-blur-sm">
-                          <p className="text-xl font-bold text-white">{tech}</p>
+                {[
+                  { icon: Globe, title: 'Frontend', techs: ['HTML', 'CSS', 'JavaScript'], label: 'User Interface', color: 'blue' },
+                  { icon: Server, title: 'Backend', techs: ['Node.js', 'Express.js', 'PineScript', 'Razorpay'], label: 'Business Logic', color: 'green' },
+                  { icon: Database, title: 'Database', techs: ['MongoDB', 'User Data', 'Subscriptions', 'Analytics'], label: 'Data Storage', color: 'purple' }
+                ].map((layer, idx) => (
+                  <div key={idx} className={`animate-slideUp`} style={{ animationDelay: `${idx * 0.2}s` }}>
+                    <div className={`bg-white border-2 border-${layer.color}-500 rounded-lg p-6 h-full shadow-md`}>
+                      <div className={`bg-${layer.color}-500 rounded-lg p-3 inline-block mb-5`}>
+                        <layer.icon className="w-9 h-9 text-white" strokeWidth={2} />
+                      </div>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-5">{layer.title}</h3>
+                      <div className="space-y-3 mb-6">
+                        {layer.techs.map((tech, i) => (
+                          <div key={i} className="bg-slate-50 border border-slate-200 rounded p-3">
+                            <p className="text-base font-medium text-slate-700">{tech}</p>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="text-center">
+                        <div className="bg-slate-100 rounded px-3 py-2 inline-block">
+                          <p className="text-xs font-semibold text-slate-600">{layer.label}</p>
                         </div>
-                      ))}
-                    </div>
-                    <div className="mt-8 text-center">
-                      <div className="bg-white/30 rounded-lg px-4 py-2 inline-block">
-                        <p className="text-sm font-bold text-white">User Interface</p>
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="flex flex-col animate-slideUp" style={{ animationDelay: '0.2s' }}>
-                  <div className="bg-gradient-to-br from-green-500 to-emerald-600 rounded-3xl p-6 flex-1 border-4 border-white/20 shadow-2xl">
-                    <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 inline-block mb-6">
-                      <Server className="w-12 h-12 text-white" strokeWidth={2} />
-                    </div>
-                    <h3 className="text-3xl font-black text-white mb-6">Backend</h3>
-                    <div className="space-y-4">
-                      {['Node.js', 'Express.js', 'PineScript', 'Razorpay'].map((tech, i) => (
-                        <div key={i} className="bg-white/20 rounded-xl p-4 backdrop-blur-sm">
-                          <p className="text-xl font-bold text-white">{tech}</p>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-8 text-center">
-                      <div className="bg-white/30 rounded-lg px-4 py-2 inline-block">
-                        <p className="text-sm font-bold text-white">Business Logic</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col animate-slideInRight" style={{ animationDelay: '0.4s' }}>
-                  <div className="bg-gradient-to-br from-purple-500 to-violet-600 rounded-3xl p-6 flex-1 border-4 border-white/20 shadow-2xl">
-                    <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 inline-block mb-6">
-                      <Database className="w-12 h-12 text-white" strokeWidth={2} />
-                    </div>
-                    <h3 className="text-3xl font-black text-white mb-6">Database</h3>
-                    <div className="space-y-4">
-                      {['MongoDB', 'User Data', 'Subscriptions', 'Analytics'].map((tech, i) => (
-                        <div key={i} className="bg-white/20 rounded-xl p-4 backdrop-blur-sm">
-                          <p className="text-xl font-bold text-white">{tech}</p>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-8 text-center">
-                      <div className="bg-white/30 rounded-lg px-4 py-2 inline-block">
-                        <p className="text-sm font-bold text-white">Data Storage</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
 
-              <div className="absolute bottom-32 left-0 right-0 flex justify-center items-center space-x-32 pointer-events-none">
-                <ArrowRight className="w-16 h-16 text-white/50 animate-pulse" strokeWidth={3} />
-                <ArrowRight className="w-16 h-16 text-white/50 animate-pulse" strokeWidth={3} style={{ animationDelay: '0.5s' }} />
+              <div className="absolute bottom-28 left-0 right-0 flex justify-center items-center space-x-32 pointer-events-none">
+                <ArrowRight className="w-12 h-12 text-slate-300" strokeWidth={2.5} />
+                <ArrowRight className="w-12 h-12 text-slate-300" strokeWidth={2.5} />
               </div>
             </div>
           </div>
@@ -470,132 +413,120 @@ const SDZonePresentation = () => {
       case 'flowchart':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-700 via-purple-800 to-pink-700"></div>
+            <div className="absolute inset-0 bg-slate-50"></div>
             <div className="slide-content">
-              <h2 className="slide-title mb-6">System Flowchart</h2>
+              <h2 className="slide-title text-slate-900 mb-6">System Flowchart</h2>
 
               <div className="flex justify-center items-center h-[calc(100%-80px)]">
                 <svg viewBox="0 0 900 950" className="w-full h-full max-w-4xl">
                   <defs>
-                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style={{ stopColor: '#06b6d4', stopOpacity: 1 }} />
-                      <stop offset="100%" style={{ stopColor: '#3b82f6', stopOpacity: 1 }} />
-                    </linearGradient>
-                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style={{ stopColor: '#10b981', stopOpacity: 1 }} />
-                      <stop offset="100%" style={{ stopColor: '#059669', stopOpacity: 1 }} />
-                    </linearGradient>
-                    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style={{ stopColor: '#f59e0b', stopOpacity: 1 }} />
-                      <stop offset="100%" style={{ stopColor: '#ef4444', stopOpacity: 1 }} />
-                    </linearGradient>
                     <filter id="shadow">
-                      <feDropShadow dx="0" dy="4" stdDeviation="8" floodOpacity="0.4"/>
+                      <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.15"/>
                     </filter>
-                    <marker id="arrow" markerWidth="14" markerHeight="14" refX="12" refY="5" orient="auto">
-                      <polygon points="0 0, 14 5, 0 10" fill="#ffffff" />
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                      <polygon points="0 0, 10 3, 0 6" fill="#64748b" />
                     </marker>
                   </defs>
                   
                   {/* START */}
-                  <ellipse cx="450" cy="60" rx="140" ry="50" 
-                    fill={flowStep >= 0 ? "url(#grad1)" : "#4b5563"} 
-                    stroke="#ffffff" strokeWidth="4" filter="url(#shadow)"
-                    style={{ transition: 'fill 0.3s ease' }}/>
-                  <text x="450" y="72" textAnchor="middle" fill="white" fontSize="28" fontWeight="900">START</text>
+                  <ellipse cx="450" cy="60" rx="120" ry="45" 
+                    fill={flowStep >= 0 ? "#3b82f6" : "#e2e8f0"} 
+                    stroke={flowStep >= 0 ? "#2563eb" : "#cbd5e1"} strokeWidth="3" filter="url(#shadow)"
+                    style={{ transition: 'all 0.3s ease' }}/>
+                  <text x="450" y="70" textAnchor="middle" fill="white" fontSize="24" fontWeight="700">START</text>
                   
-                  <line x1="450" y1="110" x2="450" y2="160" 
-                    stroke={flowStep >= 1 ? "#ffffff" : "#4b5563"} 
-                    strokeWidth="4" markerEnd={flowStep >= 1 ? "url(#arrow)" : ""}
+                  <line x1="450" y1="105" x2="450" y2="150" 
+                    stroke={flowStep >= 1 ? "#64748b" : "#cbd5e1"} 
+                    strokeWidth="3" markerEnd={flowStep >= 1 ? "url(#arrow)" : ""}
                     style={{ transition: 'stroke 0.3s ease' }}/>
                   
                   {/* User Registration */}
-                  <rect x="300" y="160" width="300" height="80" 
-                    fill={flowStep >= 1 ? "url(#grad2)" : "#4b5563"} 
-                    stroke="#ffffff" strokeWidth="4" rx="20" filter="url(#shadow)"
-                    style={{ transition: 'fill 0.3s ease' }}/>
-                  <text x="450" y="195" textAnchor="middle" fill="white" fontSize="24" fontWeight="900">User Registration</text>
-                  <text x="450" y="225" textAnchor="middle" fill="white" fontSize="24" fontWeight="900">& Login</text>
+                  <rect x="325" y="150" width="250" height="70" 
+                    fill={flowStep >= 1 ? "#3b82f6" : "#e2e8f0"} 
+                    stroke={flowStep >= 1 ? "#2563eb" : "#cbd5e1"} strokeWidth="3" rx="8" filter="url(#shadow)"
+                    style={{ transition: 'all 0.3s ease' }}/>
+                  <text x="450" y="180" textAnchor="middle" fill="white" fontSize="20" fontWeight="600">User Registration</text>
+                  <text x="450" y="205" textAnchor="middle" fill="white" fontSize="20" fontWeight="600">& Login</text>
                   
-                  <line x1="450" y1="240" x2="450" y2="280" 
-                    stroke={flowStep >= 2 ? "#ffffff" : "#4b5563"} 
-                    strokeWidth="4" markerEnd={flowStep >= 2 ? "url(#arrow)" : ""}
+                  <line x1="450" y1="220" x2="450" y2="260" 
+                    stroke={flowStep >= 2 ? "#64748b" : "#cbd5e1"} 
+                    strokeWidth="3" markerEnd={flowStep >= 2 ? "url(#arrow)" : ""}
                     style={{ transition: 'stroke 0.3s ease' }}/>
                   
                   {/* Select Subscription */}
-                  <rect x="300" y="280" width="300" height="80" 
-                    fill={flowStep >= 2 ? "url(#grad2)" : "#4b5563"} 
-                    stroke="#ffffff" strokeWidth="4" rx="20" filter="url(#shadow)"
-                    style={{ transition: 'fill 0.3s ease' }}/>
-                  <text x="450" y="315" textAnchor="middle" fill="white" fontSize="24" fontWeight="900">Select Subscription</text>
-                  <text x="450" y="345" textAnchor="middle" fill="white" fontSize="24" fontWeight="900">Plan</text>
+                  <rect x="325" y="260" width="250" height="70" 
+                    fill={flowStep >= 2 ? "#3b82f6" : "#e2e8f0"} 
+                    stroke={flowStep >= 2 ? "#2563eb" : "#cbd5e1"} strokeWidth="3" rx="8" filter="url(#shadow)"
+                    style={{ transition: 'all 0.3s ease' }}/>
+                  <text x="450" y="290" textAnchor="middle" fill="white" fontSize="20" fontWeight="600">Select Subscription</text>
+                  <text x="450" y="315" textAnchor="middle" fill="white" fontSize="20" fontWeight="600">Plan</text>
                   
-                  <line x1="450" y1="360" x2="450" y2="400" 
-                    stroke={flowStep >= 3 ? "#ffffff" : "#4b5563"} 
-                    strokeWidth="4" markerEnd={flowStep >= 3 ? "url(#arrow)" : ""}
+                  <line x1="450" y1="330" x2="450" y2="370" 
+                    stroke={flowStep >= 3 ? "#64748b" : "#cbd5e1"} 
+                    strokeWidth="3" markerEnd={flowStep >= 3 ? "url(#arrow)" : ""}
                     style={{ transition: 'stroke 0.3s ease' }}/>
                   
                   {/* Make Payment */}
-                  <rect x="300" y="400" width="300" height="80" 
-                    fill={flowStep >= 3 ? "url(#grad2)" : "#4b5563"} 
-                    stroke="#ffffff" strokeWidth="4" rx="20" filter="url(#shadow)"
-                    style={{ transition: 'fill 0.3s ease' }}/>
-                  <text x="450" y="450" textAnchor="middle" fill="white" fontSize="26" fontWeight="900">Make Payment</text>
+                  <rect x="325" y="370" width="250" height="70" 
+                    fill={flowStep >= 3 ? "#3b82f6" : "#e2e8f0"} 
+                    stroke={flowStep >= 3 ? "#2563eb" : "#cbd5e1"} strokeWidth="3" rx="8" filter="url(#shadow)"
+                    style={{ transition: 'all 0.3s ease' }}/>
+                  <text x="450" y="410" textAnchor="middle" fill="white" fontSize="22" fontWeight="600">Make Payment</text>
                   
-                  <line x1="450" y1="480" x2="450" y2="520" 
-                    stroke={flowStep >= 4 ? "#ffffff" : "#4b5563"} 
-                    strokeWidth="4" markerEnd={flowStep >= 4 ? "url(#arrow)" : ""}
+                  <line x1="450" y1="440" x2="450" y2="480" 
+                    stroke={flowStep >= 4 ? "#64748b" : "#cbd5e1"} 
+                    strokeWidth="3" markerEnd={flowStep >= 4 ? "url(#arrow)" : ""}
                     style={{ transition: 'stroke 0.3s ease' }}/>
                   
                   {/* Payment Verified Decision */}
-                  <polygon points="450,520 590,600 450,680 310,600" 
-                    fill={flowStep >= 4 ? "url(#grad3)" : "#4b5563"} 
-                    stroke="#ffffff" strokeWidth="4" filter="url(#shadow)"
-                    style={{ transition: 'fill 0.3s ease' }}/>
-                  <text x="450" y="590" textAnchor="middle" fill="white" fontSize="26" fontWeight="900">Payment</text>
-                  <text x="450" y="620" textAnchor="middle" fill="white" fontSize="26" fontWeight="900">Verified?</text>
+                  <polygon points="450,480 570,550 450,620 330,550" 
+                    fill={flowStep >= 4 ? "#f59e0b" : "#e2e8f0"} 
+                    stroke={flowStep >= 4 ? "#d97706" : "#cbd5e1"} strokeWidth="3" filter="url(#shadow)"
+                    style={{ transition: 'all 0.3s ease' }}/>
+                  <text x="450" y="540" textAnchor="middle" fill="white" fontSize="20" fontWeight="600">Payment</text>
+                  <text x="450" y="565" textAnchor="middle" fill="white" fontSize="20" fontWeight="600">Verified?</text>
                   
                   {/* Yes Path */}
-                  <line x1="450" y1="680" x2="450" y2="730" 
-                    stroke={flowStep >= 5 ? "#ffffff" : "#4b5563"} 
-                    strokeWidth="4" markerEnd={flowStep >= 5 ? "url(#arrow)" : ""}
+                  <line x1="450" y1="620" x2="450" y2="670" 
+                    stroke={flowStep >= 5 ? "#64748b" : "#cbd5e1"} 
+                    strokeWidth="3" markerEnd={flowStep >= 5 ? "url(#arrow)" : ""}
                     style={{ transition: 'stroke 0.3s ease' }}/>
-                  <text x="475" y="710" fill={flowStep >= 5 ? "#10b981" : "#6b7280"} fontSize="28" fontWeight="900">YES</text>
+                  <text x="470" y="650" fill={flowStep >= 5 ? "#10b981" : "#cbd5e1"} fontSize="22" fontWeight="700">YES</text>
                   
                   {/* Grant Access */}
-                  <rect x="300" y="730" width="300" height="80" 
-                    fill={flowStep >= 5 ? "url(#grad2)" : "#4b5563"} 
-                    stroke="#ffffff" strokeWidth="4" rx="20" filter="url(#shadow)"
-                    style={{ transition: 'fill 0.3s ease' }}/>
-                  <text x="450" y="765" textAnchor="middle" fill="white" fontSize="24" fontWeight="900">Grant Indicator</text>
-                  <text x="450" y="795" textAnchor="middle" fill="white" fontSize="24" fontWeight="900">Access</text>
+                  <rect x="325" y="670" width="250" height="70" 
+                    fill={flowStep >= 5 ? "#10b981" : "#e2e8f0"} 
+                    stroke={flowStep >= 5 ? "#059669" : "#cbd5e1"} strokeWidth="3" rx="8" filter="url(#shadow)"
+                    style={{ transition: 'all 0.3s ease' }}/>
+                  <text x="450" y="700" textAnchor="middle" fill="white" fontSize="20" fontWeight="600">Grant Indicator</text>
+                  <text x="450" y="725" textAnchor="middle" fill="white" fontSize="20" fontWeight="600">Access</text>
                   
-                  <line x1="450" y1="810" x2="450" y2="850" 
-                    stroke={flowStep >= 6 ? "#ffffff" : "#4b5563"} 
-                    strokeWidth="4" markerEnd={flowStep >= 6 ? "url(#arrow)" : ""}
+                  <line x1="450" y1="740" x2="450" y2="800" 
+                    stroke={flowStep >= 6 ? "#64748b" : "#cbd5e1"} 
+                    strokeWidth="3" markerEnd={flowStep >= 6 ? "url(#arrow)" : ""}
                     style={{ transition: 'stroke 0.3s ease' }}/>
                   
                   {/* END */}
-                  <ellipse cx="450" cy="895" rx="140" ry="50" 
-                    fill={flowStep >= 6 ? "url(#grad1)" : "#4b5563"} 
-                    stroke="#ffffff" strokeWidth="4" filter="url(#shadow)"
-                    style={{ transition: 'fill 0.3s ease' }}/>
-                  <text x="450" y="907" textAnchor="middle" fill="white" fontSize="28" fontWeight="900">END</text>
+                  <ellipse cx="450" cy="845" rx="120" ry="45" 
+                    fill={flowStep >= 6 ? "#3b82f6" : "#e2e8f0"} 
+                    stroke={flowStep >= 6 ? "#2563eb" : "#cbd5e1"} strokeWidth="3" filter="url(#shadow)"
+                    style={{ transition: 'all 0.3s ease' }}/>
+                  <text x="450" y="855" textAnchor="middle" fill="white" fontSize="24" fontWeight="700">END</text>
                   
                   {/* No Path */}
-                  <line x1="590" y1="600" x2="670" y2="600" 
-                    stroke={flowStep >= 7 ? "#ffffff" : "#4b5563"} 
-                    strokeWidth="4"
+                  <line x1="570" y1="550" x2="640" y2="550" 
+                    stroke={flowStep >= 7 ? "#64748b" : "#cbd5e1"} 
+                    strokeWidth="3"
                     style={{ transition: 'stroke 0.3s ease' }}/>
-                  <line x1="670" y1="600" x2="670" y2="440" 
-                    stroke={flowStep >= 7 ? "#ffffff" : "#4b5563"} 
-                    strokeWidth="4"
+                  <line x1="640" y1="550" x2="640" y2="405" 
+                    stroke={flowStep >= 7 ? "#64748b" : "#cbd5e1"} 
+                    strokeWidth="3"
                     style={{ transition: 'stroke 0.3s ease' }}/>
-                  <line x1="670" y1="440" x2="600" y2="440" 
-                    stroke={flowStep >= 7 ? "#ffffff" : "#4b5563"} 
-                    strokeWidth="4" markerEnd={flowStep >= 7 ? "url(#arrow)" : ""}
+                  <line x1="640" y1="405" x2="575" y2="405" 
+                    stroke={flowStep >= 7 ? "#64748b" : "#cbd5e1"} 
+                    strokeWidth="3" markerEnd={flowStep >= 7 ? "url(#arrow)" : ""}
                     style={{ transition: 'stroke 0.3s ease' }}/>
-                  <text x="690" y="610" fill={flowStep >= 7 ? "#ef4444" : "#6b7280"} fontSize="28" fontWeight="900">NO</text>
+                  <text x="655" y="560" fill={flowStep >= 7 ? "#ef4444" : "#cbd5e1"} fontSize="22" fontWeight="700">NO</text>
                 </svg>
               </div>
             </div>
@@ -605,39 +536,39 @@ const SDZonePresentation = () => {
       case 'tech-stack':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-slate-900"></div>
+            <div className="absolute inset-0 bg-white"></div>
             <div className="slide-content">
-              <h2 className="slide-title mb-8">Technologies Used</h2>
+              <h2 className="slide-title text-slate-900 mb-10">Technologies Used</h2>
 
               <div className="grid grid-cols-3 gap-8 h-[calc(100%-100px)]">
                 {[
-                  { icon: Code2, name: 'PineScript', desc: 'Indicator Logic & Algorithms', color: 'from-cyan-500 to-blue-600' },
-                  { icon: Server, name: 'Node.js & Express', desc: 'Backend Server & APIs', color: 'from-green-500 to-emerald-600' },
-                  { icon: Database, name: 'MongoDB', desc: 'Database Management', color: 'from-purple-500 to-violet-600' }
+                  { icon: Code2, name: 'PineScript', desc: 'Indicator Logic & Algorithms', color: 'blue' },
+                  { icon: Server, name: 'Node.js & Express', desc: 'Backend Server & APIs', color: 'green' },
+                  { icon: Database, name: 'MongoDB', desc: 'Database Management', color: 'purple' }
                 ].map((tech, idx) => (
                   <div key={idx} className="animate-popIn" style={{ animationDelay: `${idx * 0.15}s` }}>
-                    <div className={`bg-gradient-to-br ${tech.color} rounded-3xl p-8 h-full border-4 border-white/20 shadow-2xl hover:scale-105 transition-transform`}>
-                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-5 inline-block mb-6">
-                        <tech.icon className="w-14 h-14 text-white" strokeWidth={2} />
+                    <div className={`bg-white border-2 border-${tech.color}-500 rounded-lg p-8 h-full shadow-md hover:shadow-lg transition-all`}>
+                      <div className={`bg-${tech.color}-500 rounded-lg p-4 inline-block mb-5`}>
+                        <tech.icon className="w-10 h-10 text-white" strokeWidth={2} />
                       </div>
-                      <h3 className="text-3xl font-black text-white mb-4">{tech.name}</h3>
-                      <p className="text-xl text-white/90 font-semibold leading-relaxed">{tech.desc}</p>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-3">{tech.name}</h3>
+                      <p className="text-lg text-slate-600 leading-relaxed">{tech.desc}</p>
                     </div>
                   </div>
                 ))}
 
                 {[
-                  { icon: Globe, name: 'HTML/CSS/JS', desc: 'Frontend Interface & UX', color: 'from-orange-500 to-red-600' },
-                  { icon: Lock, name: 'Razorpay', desc: 'Payment Gateway Integration', color: 'from-pink-500 to-rose-600' }
+                  { icon: Globe, name: 'HTML/CSS/JS', desc: 'Frontend Interface & UX', color: 'orange' },
+                  { icon: Lock, name: 'Razorpay', desc: 'Payment Gateway Integration', color: 'red' }
                 ].map((tech, idx) => (
                   <div key={idx} className={`animate-popIn ${idx === 0 ? 'col-start-1' : ''}`} 
                        style={{ animationDelay: `${(idx + 3) * 0.15}s` }}>
-                    <div className={`bg-gradient-to-br ${tech.color} rounded-3xl p-8 h-full border-4 border-white/20 shadow-2xl hover:scale-105 transition-transform`}>
-                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-5 inline-block mb-6">
-                        <tech.icon className="w-14 h-14 text-white" strokeWidth={2} />
+                    <div className={`bg-white border-2 border-${tech.color}-500 rounded-lg p-8 h-full shadow-md hover:shadow-lg transition-all`}>
+                      <div className={`bg-${tech.color}-500 rounded-lg p-4 inline-block mb-5`}>
+                        <tech.icon className="w-10 h-10 text-white" strokeWidth={2} />
                       </div>
-                      <h3 className="text-3xl font-black text-white mb-4">{tech.name}</h3>
-                      <p className="text-xl text-white/90 font-semibold leading-relaxed">{tech.desc}</p>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-3">{tech.name}</h3>
+                      <p className="text-lg text-slate-600 leading-relaxed">{tech.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -649,46 +580,46 @@ const SDZonePresentation = () => {
       case 'impact':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-indigo-900"></div>
+            <div className="absolute inset-0 bg-slate-50"></div>
             <div className="slide-content">
-              <h2 className="slide-title mb-8">Project Impact</h2>
+              <h2 className="slide-title text-slate-900 mb-10">Project Impact</h2>
 
               <div className="grid grid-cols-3 gap-8 h-[calc(100%-100px)]">
                 {[
                   {
                     title: 'Key Features',
                     icon: Zap,
-                    color: 'from-yellow-500 to-orange-600',
+                    color: 'yellow',
                     items: ['Automated zone detection', 'High accuracy signals', 'Secure subscriptions', 'Protected proprietary code']
                   },
                   {
                     title: 'Testing Done',
                     icon: TestTube2,
-                    color: 'from-green-500 to-emerald-600',
+                    color: 'green',
                     items: ['Unit testing', 'Integration testing', 'System testing', 'Security testing']
                   },
                   {
                     title: 'Results Achieved',
                     icon: Award,
-                    color: 'from-purple-500 to-pink-600',
+                    color: 'purple',
                     items: ['Reduced manual effort', 'Faster decision making', 'Improved accuracy', 'Scalable system']
                   }
                 ].map((section, idx) => (
                   <div key={idx} className="animate-slideUp" style={{ animationDelay: `${idx * 0.2}s` }}>
-                    <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-3xl p-8 h-full shadow-2xl hover:bg-white/15 transition-all">
-                      <div className={`bg-gradient-to-br ${section.color} rounded-2xl p-5 inline-block mb-6 shadow-xl`}>
-                        <section.icon className="w-12 h-12 text-white" strokeWidth={2.5} />
+                    <div className="bg-white border border-slate-200 rounded-lg p-8 h-full shadow-sm hover:shadow-md transition-all">
+                      <div className={`bg-${section.color}-500 rounded-lg p-4 inline-block mb-5`}>
+                        <section.icon className="w-9 h-9 text-white" strokeWidth={2} />
                       </div>
                       
-                      <h3 className="text-3xl font-black text-white mb-6 pb-3 border-b-2 border-white/30">
+                      <h3 className="text-2xl font-bold text-slate-900 mb-5 pb-3 border-b border-slate-200">
                         {section.title}
                       </h3>
                       
-                      <ul className="space-y-4">
+                      <ul className="space-y-3">
                         {section.items.map((item, i) => (
                           <li key={i} className="flex items-start">
-                            <div className={`flex-shrink-0 w-3 h-3 rounded-full bg-gradient-to-r ${section.color} mt-2 mr-3`}></div>
-                            <span className="text-xl text-white/95 font-medium leading-relaxed">{item}</span>
+                            <div className={`flex-shrink-0 w-2 h-2 rounded-full bg-${section.color}-500 mt-2 mr-3`}></div>
+                            <span className="text-base text-slate-700 leading-relaxed">{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -703,29 +634,29 @@ const SDZonePresentation = () => {
       case 'security':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-red-700 to-orange-800"></div>
+            <div className="absolute inset-0 bg-white"></div>
             <div className="slide-content">
-              <div className="flex items-center mb-8">
-                <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl mr-5">
-                  <Shield className="w-14 h-14 text-white" strokeWidth={2} />
+              <div className="flex items-center mb-10">
+                <div className="bg-red-500 p-3 rounded-lg mr-4">
+                  <Shield className="w-10 h-10 text-white" strokeWidth={2} />
                 </div>
-                <h2 className="slide-title">Security Features</h2>
+                <h2 className="slide-title text-slate-900">Security Features</h2>
               </div>
 
               <div className="grid grid-cols-2 gap-8 h-[calc(100%-120px)]">
                 {[
-                  { icon: Lock, title: 'Data Encryption', desc: 'End-to-end encryption for all user data and transactions', color: 'from-blue-500 to-indigo-600' },
-                  { icon: Shield, title: 'Code Protection', desc: 'Proprietary indicator code secured with obfuscation', color: 'from-green-500 to-teal-600' },
-                  { icon: Users, title: 'Authentication', desc: 'Multi-factor authentication for user accounts', color: 'from-purple-500 to-pink-600' },
-                  { icon: Database, title: 'Secure Storage', desc: 'Encrypted database with regular backups', color: 'from-orange-500 to-red-600' }
+                  { icon: Lock, title: 'Data Encryption', desc: 'End-to-end encryption for all user data and transactions' },
+                  { icon: Shield, title: 'Code Protection', desc: 'Proprietary indicator code secured with obfuscation' },
+                  { icon: Users, title: 'Authentication', desc: 'Multi-factor authentication for user accounts' },
+                  { icon: Database, title: 'Secure Storage', desc: 'Encrypted database with regular backups' }
                 ].map((feature, idx) => (
                   <div key={idx} className="animate-popIn" style={{ animationDelay: `${idx * 0.15}s` }}>
-                    <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-3xl p-8 h-full hover:bg-white/20 transition-all">
-                      <div className={`bg-gradient-to-br ${feature.color} rounded-2xl p-5 inline-block mb-6 shadow-xl`}>
-                        <feature.icon className="w-12 h-12 text-white" strokeWidth={2.5} />
+                    <div className="bg-slate-50 border border-slate-200 rounded-lg p-8 h-full hover:border-red-500 transition-all">
+                      <div className="bg-red-500 rounded-lg p-4 inline-block mb-5">
+                        <feature.icon className="w-9 h-9 text-white" strokeWidth={2} />
                       </div>
-                      <h3 className="text-3xl font-black text-white mb-4">{feature.title}</h3>
-                      <p className="text-xl text-white/90 font-medium leading-relaxed">{feature.desc}</p>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+                      <p className="text-lg text-slate-600 leading-relaxed">{feature.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -737,13 +668,13 @@ const SDZonePresentation = () => {
       case 'future':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 to-purple-700"></div>
+            <div className="absolute inset-0 bg-slate-50"></div>
             <div className="slide-content">
-              <div className="flex items-center mb-8">
-                <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl mr-5">
-                  <Rocket className="w-14 h-14 text-white" strokeWidth={2} />
+              <div className="flex items-center mb-10">
+                <div className="bg-indigo-500 p-3 rounded-lg mr-4">
+                  <Rocket className="w-10 h-10 text-white" strokeWidth={2} />
                 </div>
-                <h2 className="slide-title">Future Enhancements</h2>
+                <h2 className="slide-title text-slate-900">Future Enhancements</h2>
               </div>
 
               <div className="grid grid-cols-2 gap-8 h-[calc(100%-120px)]">
@@ -754,12 +685,12 @@ const SDZonePresentation = () => {
                   { icon: Zap, title: 'AI-Based Filtering', desc: 'Machine learning for trade recommendations' }
                 ].map((feature, idx) => (
                   <div key={idx} className="animate-slideIn" style={{ animationDelay: `${idx * 0.15}s` }}>
-                    <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-3xl p-10 h-full shadow-2xl hover:bg-white/20 hover:scale-105 transition-all">
-                      <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-6 inline-block mb-6 shadow-xl">
-                        <feature.icon className="w-14 h-14 text-white" strokeWidth={2} />
+                    <div className="bg-white border border-slate-200 rounded-lg p-8 h-full hover:border-indigo-500 hover:shadow-md transition-all">
+                      <div className="bg-indigo-500 rounded-lg p-4 inline-block mb-5">
+                        <feature.icon className="w-10 h-10 text-white" strokeWidth={2} />
                       </div>
-                      <h3 className="text-3xl font-black text-white mb-4">{feature.title}</h3>
-                      <p className="text-xl text-white/90 font-medium leading-relaxed">{feature.desc}</p>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+                      <p className="text-lg text-slate-600 leading-relaxed">{feature.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -771,59 +702,46 @@ const SDZonePresentation = () => {
       case 'conclusion':
         return (
           <div className="slide-container">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900">
-              {[...Array(40)].map((_, i) => (
-                <div key={i} className="absolute rounded-full animate-float"
-                  style={{
-                    width: `${Math.random() * 10 + 5}px`,
-                    height: `${Math.random() * 10 + 5}px`,
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    background: `hsl(${Math.random() * 360}, 80%, 70%)`,
-                    opacity: Math.random() * 0.7 + 0.3,
-                    animationDuration: `${Math.random() * 10 + 8}s`,
-                    animationDelay: `${Math.random() * 3}s`
-                  }}
-                />
-              ))}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+              <div className="absolute inset-0 opacity-5" style={{
+                backgroundImage: `linear-gradient(rgba(100, 116, 139, 0.5) 1px, transparent 1px),
+                                 linear-gradient(90deg, rgba(100, 116, 139, 0.5) 1px, transparent 1px)`,
+                backgroundSize: '50px 50px'
+              }}></div>
             </div>
 
             <div className="slide-content flex flex-col items-center justify-center text-center">
-              <div className="mb-8 relative animate-bounce">
-                <div className="absolute inset-0 bg-yellow-400 blur-3xl opacity-60"></div>
-                <Award className="relative w-32 h-32 text-yellow-300" strokeWidth={1.5} />
+              <div className="mb-8">
+                <Award className="w-24 h-24 text-blue-500 mx-auto" strokeWidth={1.5} />
               </div>
               
-              <h2 className="text-7xl font-black text-white mb-12 animate-fadeInUp" 
-                  style={{ fontFamily: "'Outfit', sans-serif" }}>
+              <h2 className="text-6xl font-bold text-white mb-12 animate-fadeInUp" 
+                  style={{ fontFamily: "'Inter', sans-serif" }}>
                 Conclusion
               </h2>
               
-              <div className="max-w-5xl space-y-6 mb-16">
+              <div className="max-w-5xl space-y-5 mb-16">
                 {[
                   'Successfully automates complex trading analysis',
                   'Integrates modern technology with financial markets',
                   'Demonstrates practical full-stack development',
                   'Provides scalable and secure trading solution'
                 ].map((point, idx) => (
-                  <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 animate-slideIn"
+                  <div key={idx} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-lg p-5 animate-slideIn"
                        style={{ animationDelay: `${idx * 0.1}s` }}>
                     <div className="flex items-center">
-                      <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mr-5 shadow-lg">
-                        <CheckCircle className="w-6 h-6 text-white" strokeWidth={3} />
+                      <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                        <CheckCircle className="w-5 h-5 text-white" strokeWidth={2.5} />
                       </div>
-                      <p className="text-2xl text-white font-semibold text-left">{point}</p>
+                      <p className="text-xl text-slate-200 font-medium text-left">{point}</p>
                     </div>
                   </div>
                 ))}
               </div>
               
-              <div className="relative inline-block animate-slideUp" style={{ animationDelay: '0.5s' }}>
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 blur-2xl opacity-60"></div>
-                <div className="relative bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 px-20 py-10 rounded-3xl shadow-2xl border-4 border-white/30">
-                  <h3 className="text-6xl font-black text-white mb-3">Thank You!</h3>
-                  <p className="text-3xl text-white/95 font-bold">Questions?</p>
-                </div>
+              <div className="bg-blue-500 px-16 py-8 rounded-lg shadow-xl animate-slideUp" style={{ animationDelay: '0.5s' }}>
+                <h3 className="text-5xl font-bold text-white mb-2">Thank You!</h3>
+                <p className="text-2xl text-white/90 font-medium">Questions?</p>
               </div>
             </div>
           </div>
@@ -835,41 +753,41 @@ const SDZonePresentation = () => {
   };
 
   return (
-    <div className="w-screen h-screen bg-black flex items-center justify-center overflow-hidden">
-      <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet" />
+    <div className="w-screen h-screen bg-slate-100 flex items-center justify-center overflow-hidden">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       
       <div className="presentation-wrapper">
         <div className="presentation-content">
           {renderSlide(slides[currentSlide])}
         </div>
 
-        <div className="absolute top-6 right-6 bg-black/50 backdrop-blur-sm px-5 py-2 rounded-full border border-white/20">
-          <span className="text-white font-bold text-lg">
+        <div className="absolute top-6 right-6 bg-slate-800 px-4 py-2 rounded-lg">
+          <span className="text-white font-semibold text-sm">
             {currentSlide + 1} / {slides.length}
           </span>
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 border-t border-purple-500/30 z-50">
+      <div className="fixed bottom-0 left-0 right-0 bg-slate-800 border-t border-slate-700 z-50">
         <div className="px-8 py-4 flex items-center justify-between max-w-7xl mx-auto">
           <button
             onClick={prevSlide}
             disabled={currentSlide === 0}
             className="control-btn"
           >
-            <ChevronLeft className="w-6 h-6 mr-2" />
+            <ChevronLeft className="w-5 h-5 mr-2" />
             Previous
           </button>
 
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2">
             {slides.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => goToSlide(idx)}
                 className={`transition-all duration-300 rounded-full ${
                   idx === currentSlide 
-                    ? 'w-10 h-3 bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg' 
-                    : 'w-3 h-3 bg-gray-600 hover:bg-gray-500'
+                    ? 'w-8 h-2 bg-blue-500' 
+                    : 'w-2 h-2 bg-slate-600 hover:bg-slate-500'
                 }`}
               />
             ))}
@@ -881,7 +799,7 @@ const SDZonePresentation = () => {
             className="control-btn"
           >
             Next
-            <ChevronRight className="w-6 h-6 ml-2" />
+            <ChevronRight className="w-5 h-5 ml-2" />
           </button>
         </div>
       </div>
@@ -893,9 +811,10 @@ const SDZonePresentation = () => {
           max-width: 1600px;
           max-height: 900px;
           position: relative;
-          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-          border-radius: 12px;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+          border-radius: 8px;
           overflow: hidden;
+          background: white;
         }
 
         .presentation-content {
@@ -920,51 +839,41 @@ const SDZonePresentation = () => {
         }
 
         .slide-title {
-          font-size: 4rem;
-          font-weight: 900;
-          color: white;
-          font-family: 'Outfit', sans-serif;
-          text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+          font-size: 3.5rem;
+          font-weight: 800;
+          font-family: 'Inter', sans-serif;
+          letter-spacing: -0.02em;
         }
 
         .control-btn {
           display: flex;
           align-items: center;
-          padding: 12px 24px;
-          background: linear-gradient(135deg, #7c3aed, #ec4899);
+          padding: 10px 20px;
+          background: #3b82f6;
           color: white;
-          font-weight: 700;
-          border-radius: 12px;
-          transition: all 0.3s;
+          font-weight: 600;
+          border-radius: 8px;
+          transition: all 0.2s;
           border: none;
           cursor: pointer;
+          font-size: 14px;
         }
 
         .control-btn:disabled {
-          background: linear-gradient(135deg, #374151, #4b5563);
+          background: #475569;
           cursor: not-allowed;
           opacity: 0.5;
         }
 
         .control-btn:not(:disabled):hover {
-          transform: scale(1.05);
-          box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
-        }
-
-        @keyframes gridMove {
-          0% { transform: translate(0, 0); }
-          100% { transform: translate(60px, 60px); }
-        }
-
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-30px) rotate(180deg); }
+          background: #2563eb;
+          transform: translateY(-1px);
         }
 
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
           }
           to {
             opacity: 1;
@@ -975,7 +884,7 @@ const SDZonePresentation = () => {
         @keyframes slideInLeft {
           from {
             opacity: 0;
-            transform: translateX(-50px);
+            transform: translateX(-30px);
           }
           to {
             opacity: 1;
@@ -986,7 +895,7 @@ const SDZonePresentation = () => {
         @keyframes slideInRight {
           from {
             opacity: 0;
-            transform: translateX(50px);
+            transform: translateX(30px);
           }
           to {
             opacity: 1;
@@ -997,7 +906,7 @@ const SDZonePresentation = () => {
         @keyframes slideUp {
           from {
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(30px);
           }
           to {
             opacity: 1;
@@ -1008,7 +917,7 @@ const SDZonePresentation = () => {
         @keyframes slideIn {
           from {
             opacity: 0;
-            transform: scale(0.9);
+            transform: scale(0.95);
           }
           to {
             opacity: 1;
@@ -1019,25 +928,11 @@ const SDZonePresentation = () => {
         @keyframes popIn {
           0% {
             opacity: 0;
-            transform: scale(0.5);
-          }
-          50% {
-            transform: scale(1.1);
+            transform: scale(0.9);
           }
           100% {
             opacity: 1;
             transform: scale(1);
-          }
-        }
-
-        @keyframes rotateIn {
-          from {
-            opacity: 0;
-            transform: rotate(-180deg) scale(0);
-          }
-          to {
-            opacity: 1;
-            transform: rotate(0deg) scale(1);
           }
         }
 
@@ -1047,47 +942,38 @@ const SDZonePresentation = () => {
         }
 
         .animate-fadeInUp {
-          animation: fadeInUp 0.8s ease-out forwards;
+          animation: fadeInUp 0.6s ease-out forwards;
           opacity: 0;
         }
 
         .animate-slideInLeft {
-          animation: slideInLeft 0.6s ease-out forwards;
+          animation: slideInLeft 0.5s ease-out forwards;
           opacity: 0;
         }
 
         .animate-slideInRight {
-          animation: slideInRight 0.6s ease-out forwards;
+          animation: slideInRight 0.5s ease-out forwards;
           opacity: 0;
         }
 
         .animate-slideUp {
-          animation: slideUp 0.6s ease-out forwards;
+          animation: slideUp 0.5s ease-out forwards;
           opacity: 0;
         }
 
         .animate-slideIn {
-          animation: slideIn 0.6s ease-out forwards;
+          animation: slideIn 0.5s ease-out forwards;
           opacity: 0;
         }
 
         .animate-popIn {
-          animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-          opacity: 0;
-        }
-
-        .animate-rotateIn {
-          animation: rotateIn 0.8s ease-out forwards;
+          animation: popIn 0.5s ease-out forwards;
           opacity: 0;
         }
 
         .animate-fadeIn {
-          animation: fadeIn 0.6s ease-out forwards;
+          animation: fadeIn 0.5s ease-out forwards;
           opacity: 0;
-        }
-
-        .animate-float {
-          animation: float ease-in-out infinite;
         }
       `}</style>
     </div>
